@@ -1,5 +1,7 @@
 FROM gcr.io/deeplearning-platform-release/pytorch-gpu
 
+ARG GITHUB_TOKEN
+
 RUN echo 'jupyter:428-jupyter' | chpasswd
 RUN echo 'root:428-jupyter' | chpasswd
 
@@ -78,7 +80,7 @@ RUN chown jupyter /jupyter-home
 USER jupyter
 WORKDIR /jupyter-home
 
-RUN git clone https://rnett:85aca048d926a43aaee1e8c6ae44479990f53d3e@github.com/rnett/shell_config.git /jupyter-home/.shell_config
+RUN git clone https://rnett:$GITHUB_TOKEN@github.com/rnett/shell_config.git /jupyter-home/.shell_config
 
 RUN echo "\nexport SHELL_CONFIG='/home/jupyter/.shell_config'" >> /jupyter-home/.shell_config/.zprofile
 RUN echo "export PATH=$EXTRA_PATH:\$PATH" >> /jupyter-home/.shell_config/.zprofile
