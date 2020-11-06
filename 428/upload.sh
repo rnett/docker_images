@@ -9,4 +9,4 @@ export IMAGE_URI=gcr.io/$PROJECT_ID/$IMAGE_REPO_NAME:$IMAGE_TAG
 # docker build -f Dockerfile -t $IMAGE_URI --build-arg CACHEBUST=$(date +%s) ./
 # docker push $IMAGE_URI
 
-gcloud builds submit --tag $IMAGE_URI --substitutions=GITHUB_TOKEN="$GITHUB_TOKEN"
+gcloud builds submit --tag $IMAGE_URI --substitutions=_GH_TOKEN="$GITHUB_TOKEN"
