@@ -62,6 +62,8 @@ RUN pip install -U \
 	tqdm \
 	jupyter
 
+RUN pip install -U git+https://github.com/rnett/pytorch-lightning@rn_fix_attr_finding
+
 RUN usermod -aG sudo jupyter
 
 RUN cp /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh
