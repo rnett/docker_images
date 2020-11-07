@@ -1,3 +1,4 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/dl-compute/428-container', '.', '--build_arg', '$_GH_TOKEN' ]
+  args: [ 'build', '-t', '$_IMAGE_URI', '.', '--build-arg', 'GITHUB_TOKEN=$_GH_TOKEN' ]
+images: [ '$_IMAGE_URI' ]
